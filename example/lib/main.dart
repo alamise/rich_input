@@ -21,14 +21,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  RichInputController _controller;
-  FocusNode _focusNode;
+  final _controller = RichInputController(text: "Text");
+  final _focusNode = FocusNode();
 
   @override
   void initState() {
-    _focusNode = FocusNode();
-    _controller = RichInputController(text: "Text");
-
     // Refresh text display, not required
     _controller.addListener(() {
       setState(() {});
@@ -52,25 +49,25 @@ class _MyHomePageState extends State<MyHomePage> {
               Wrap(
                 spacing: 10,
                 children: [
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       _controller.insertText("Text");
                     },
                     child: const Text("Add Text"),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       _controller.insertText("😁");
                     },
                     child: const Text("Add 😁"),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       _controller.insertText("👍");
                     },
                     child: const Text("Add 👍"),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       final block = RichBlock(
                         text: "@abc‎​‎ ",
@@ -84,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: const Text("Add @    "),
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     onPressed: () {
                       final block = RichBlock(
                         text: "#subject ",
@@ -98,16 +95,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: const Text("Add #"),
                   ),
-                  RaisedButton(
-                    onPressed: () {
-                      _controller.clear();
-                    },
+                  ElevatedButton(
+                    onPressed: _controller.clear,
                     child: const Text("clear"),
                   ),
-                  RaisedButton(
-                    onPressed: () {
-                      _focusNode.unfocus();
-                    },
+                  ElevatedButton(
+                    onPressed: _focusNode.unfocus,
                     child: const Text("unfocus"),
                   )
                 ],
