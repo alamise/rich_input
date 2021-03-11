@@ -27,7 +27,7 @@ class RichInput extends TextField {
     SmartDashesType? smartDashesType,
     SmartQuotesType? smartQuotesType,
     bool enableSuggestions = true,
-    int maxLines = 1,
+    int? maxLines,
     int? minLines,
     bool expands = false,
     int? maxLength,
