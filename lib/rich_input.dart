@@ -223,7 +223,10 @@ class RichInputController extends TextEditingController {
   }
 
   @override
-  TextSpan buildTextSpan({TextStyle? style, required bool withComposing}) {
+  TextSpan buildTextSpan(
+      {required BuildContext context,
+      TextStyle? style,
+      required bool withComposing}) {
     if (!value.composing.isValid || !withComposing) {
       return _getTextSpan(text, style);
     }
